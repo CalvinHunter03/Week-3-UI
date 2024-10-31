@@ -30,29 +30,36 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Jump();
-        
+
     }
 
-    private void FixedUpdate(){
+    private void FixedUpdate()
+    {
         rb.AddForce(movementDir.normalized * movementForce + drag);
     }
 
-    private void Move(){
+    private void Move()
+    {
         movementDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         drag = new Vector3(-rb.velocity.x * dragForce, 0f, -rb.velocity.z * dragForce);
     }
 
-    private void Jump(){
+    private void Jump()
+    {
         groundCheckDistance = (GetComponent<CapsuleCollider>().height / 2) + bufferCheckDistance;
 
-        if(Input.GetKeyDown(KeyCode.Space) && grounded){
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
 
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, -transform.up, out hit, groundCheckDistance)){
+        if (Physics.Raycast(transform.position, -transform.up, out hit, groundCheckDistance))
+        {
             grounded = true;
-        } else {
+        }
+        else
+        {
             grounded = false;
         }
     }

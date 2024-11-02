@@ -35,12 +35,11 @@ public class SpawnPlatform : MonoBehaviour
             chanceToApple = Random.Range(0.0f, 1.0f);
             chanceForNegative = Random.Range(0.0f, 1.0f);
 
-            if (chanceForNegative >= 0.5f)
-            {
+            if(chanceForNegative >= 0.5f){
                 randomAppleXPos *= -1;
             }
 
-            Vector3 applePlatformPos = new Vector3(spawnPoint.position.x + randomAppleXPos, spawnPoint.position.y, spawnPoint.position.z + randomZPos);
+            Vector3 applePlatformPos = new Vector3(spawnPoint.position.x + randomAppleXPos, spawnPoint.position.y + randomYPos, spawnPoint.position.z + randomZPos);
             if (chanceToApple > 0.75f)
             {
                 Instantiate(applePlatform, applePlatformPos, Quaternion.identity);

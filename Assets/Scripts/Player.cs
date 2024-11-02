@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public int currentHealth;
     private int appleNum = 0;
 
+    public float distance = 0;
+
     public TextMeshProUGUI appleText;
 
     private void OnTriggerEnter(Collider other)
@@ -32,6 +34,11 @@ public class Player : MonoBehaviour
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             wall.SetActive(false);
+        }
+
+        if (transform.position.y <= -20)
+        {
+            transform.position = new Vector3(0, 1, 0);
         }
     }
 }

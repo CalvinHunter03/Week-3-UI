@@ -18,7 +18,7 @@ public class RandomObjectSpawner : MonoBehaviour
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(-9, 10), .25f, Random.Range(-5, 10));
 
                 //Instantiate(thingToSpawn, randomSpawnPosition, Quaternion.identity);
-                GameObject apple = ObjectPool.instance.GetPooledObject();
+                GameObject apple = ObjectPool.instance.GetAppleObject();
                 if (apple != null)
                 {
                     apple.transform.position = randomSpawnPosition;

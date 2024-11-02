@@ -40,13 +40,19 @@ public class SpawnPlatform : MonoBehaviour
                 randomAppleXPos *= -1;
             }
             Vector3 applePlatformPos = new Vector3(spawnPoint.position.x + randomAppleXPos, spawnPoint.position.y, spawnPoint.position.z + randomZPos);
-            if (chanceToApple > 0.75f)
+            if (chanceToApple >= 0.75f)
             {
                 Instantiate(applePlatform, applePlatformPos, Quaternion.identity);
             }
 
             Vector3 newPos = new Vector3(spawnPoint.position.x + randomXPos, spawnPoint.position.y + randomYPos, spawnPoint.position.z + randomZPos);
-            Instantiate(platform, newPos, Quaternion.identity);
+            //Instantiate(platform, newPos, Quaternion.identity);
+            platform = ObjectPool.instance.GetPlatformObject();
+            if (platform != null)
+            {
+                platform.transform.position = newPos;
+                platform.SetActive(true);
+            }
             triggered = true;
         }
     }

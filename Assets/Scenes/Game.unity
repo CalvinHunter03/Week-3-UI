@@ -1390,7 +1390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0768ff8bc9e5c14fbd961433345c0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applePrefab: {fileID: 4370672066353852966, guid: 37c3a4cf4a4ba6449b66f29bc12f3214, type: 3}
+  platform: {fileID: 4849952238499513384, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+  apple: {fileID: 4370672066353852966, guid: 37c3a4cf4a4ba6449b66f29bc12f3214, type: 3}
+  applePlatform: {fileID: 2741572092001582851, guid: 13d804ffa948046e88b1a51def70d28a, type: 3}
 --- !u!1001 &1841312516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1778,6 +1780,7 @@ MonoBehaviour:
   wall: {fileID: 2069070747}
   MaxHealth: 100
   currentHealth: 0
+  distance: 0
   appleText: {fileID: 689337067}
 --- !u!1 &2146033656
 GameObject:

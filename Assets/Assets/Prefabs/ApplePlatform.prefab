@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1230331130263823291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3808751422933097762}
+  m_Layer: 0
+  m_Name: Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3808751422933097762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230331130263823291}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.528, y: 0.233, z: 0.052}
+  m_LocalScale: {x: 1, y: 3.333333, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8226161799951529808}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2741572092001582851
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +64,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8879151669131935867}
+  - {fileID: 3808751422933097762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7538974718222480231
@@ -167,8 +199,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4370672066353852966, guid: 37c3a4cf4a4ba6449b66f29bc12f3214, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3362331824083318591}
   m_SourcePrefab: {fileID: 100100000, guid: 37c3a4cf4a4ba6449b66f29bc12f3214, type: 3}
+--- !u!1 &3176555610642352340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4370672066353852966, guid: 37c3a4cf4a4ba6449b66f29bc12f3214, type: 3}
+  m_PrefabInstance: {fileID: 1203265294565571314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3362331824083318591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176555610642352340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913d4e45074de48c6a282d7ecc542314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 3808751422933097762}
+  appleSpawnPoint: {fileID: 3808751422933097762}
+  applePlatform: {fileID: 2741572092001582851}
+  platform: {fileID: 4849952238499513384, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+  triggered: 0
 --- !u!4 &8879151669131935867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7749514148652776073, guid: 37c3a4cf4a4ba6449b66f29bc12f3214, type: 3}

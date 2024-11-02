@@ -33,5 +33,10 @@ public class Player : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             wall.SetActive(false);
         }
+
+        if (transform.position.y <= -20)
+        {
+            transform.position = new Vector3(0, 1, 0);
+        }
     }
 }

@@ -24,6 +24,7 @@ public class DeletePlatform : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+<<<<<<< HEAD
 
             if (spawnPlatform == null)
             {
@@ -32,6 +33,9 @@ public class DeletePlatform : MonoBehaviour
             }
             spawnPlatform.triggered = false;
             platform.SetActive(false);
+=======
+            Destroy(platform);
+>>>>>>> parent of b1b3b8a (can't fall and object pooling)
         }
 
     }

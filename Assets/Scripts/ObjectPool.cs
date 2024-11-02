@@ -7,18 +7,11 @@ public class ObjectPool : MonoBehaviour
 
     public static ObjectPool instance;
 
-    private List<GameObject> platformList = new List<GameObject>();
-    private List<GameObject> appleList = new List<GameObject>();
-    private List<GameObject> applePlatformList = new List<GameObject>();
-
-    private int amountToPool = 20;
-    [SerializeField] private GameObject platform;
-    [SerializeField] private GameObject apple;
-    [SerializeField] private GameObject applePlatform;
-    private void Awake()
-    {
-        if (instance == null)
-        {
+    private List<GameObject> pooledObjects = new List<GameObject>();
+    private int amountToPool = 50;
+    [SerializeField] private GameObject applePrefab;
+    private void Awake(){
+        if(instance == null){
             instance = this;
         }
     }
@@ -26,55 +19,17 @@ public class ObjectPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //platform loop
-        for (int i = 0; i < amountToPool; i++)
-        {
-            GameObject plat = Instantiate(platform);
-            GameObject app = Instantiate(apple);
-            GameObject appPlat = Instantiate(applePlatform);
-            plat.SetActive(false);
-            app.SetActive(false);
-            appPlat.SetActive(false);
-            platformList.Add(plat);
-            appleList.Add(app);
-            applePlatformList.Add(appPlat);
-
-
-
+        for(int i = 0; i < amountToPool; i++){
+            GameObject obj = Instantiate(applePrefab);
+            obj.SetActive(false);
+            pooledObjects.Add(obj);
         }
     }
 
-    public GameObject GetPlatformObject()
-    {
-        for (int i = 0; i < platformList.Count; i++)
-        {
-            if (!platformList[i].activeInHierarchy)
-            {
-                return platformList[i];
-            }
-        }
-        return null;
-    }
-
-    public GameObject GetAppleObject()
-    {
-        for (int i = 0; i < appleList.Count; i++)
-        {
-            if (!appleList[i].activeInHierarchy)
-            {
-                return appleList[i];
-            }
-        }
-        return null;
-    }
-
-    public GameObject GetApplePlatformObject()
-    {
-        for (int i = 0; i < applePlatformList.Count; i++)
-        {
-            if (!applePlatformList[i].activeInHierarchy)
-            {
-                return applePlatformList[i];
+    public GameObject GetPooledObject(){
+        for(int i = 0; i < pooledObjects.Count; i++){
+            if(!pooledObjects[i].activeInHierarchy){
+                return pooledObjects[i];
             }
         }
         return null;
@@ -83,6 +38,6 @@ public class ObjectPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

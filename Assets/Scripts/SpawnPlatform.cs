@@ -9,7 +9,7 @@ public class SpawnPlatform : MonoBehaviour
     public Transform appleSpawnPoint;
     public GameObject applePlatform;
     public GameObject platform;
-    private bool triggered = false;
+    public bool triggered = false;
     private int randomXPos;
     private int randomYPos;
     private int randomZPos;
@@ -47,11 +47,11 @@ public class SpawnPlatform : MonoBehaviour
 
             Vector3 newPos = new Vector3(spawnPoint.position.x + randomXPos, spawnPoint.position.y + randomYPos, spawnPoint.position.z + randomZPos);
             //Instantiate(platform, newPos, Quaternion.identity);
-            platform = ObjectPool.instance.GetPlatformObject();
-            if (platform != null)
+            GameObject thePlatform = ObjectPool.instance.GetPlatformObject();
+            if (thePlatform != null)
             {
-                platform.transform.position = newPos;
-                platform.SetActive(true);
+                thePlatform.transform.position = newPos;
+                thePlatform.SetActive(true);
             }
             triggered = true;
         }

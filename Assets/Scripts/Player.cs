@@ -8,11 +8,17 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public GameObject wall;
+    public GameObject platform;
     public int MaxHealth = 100;
     public int currentHealth;
     private int appleNum = 0;
+    private int platformCounter = 0;
+
+    public GameObject platformCounterTrigger;
+
 
     public TextMeshProUGUI appleText;
+    public TextMeshProUGUI platformCounterText;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +29,18 @@ public class Player : MonoBehaviour
             appleText.text = "Apples: " + appleNum.ToString();
             other.gameObject.SetActive(false);
         }
+
+
+        if (other.transform.tag == "platformCounter")
+        {
+
+            other.gameObject.SetActive(false);
+            platformCounter++;
+            platformCounterText.text = platformCounter.ToString();
+
+
+        }
+
     }
 
     void Update()
@@ -36,7 +54,7 @@ public class Player : MonoBehaviour
 
         if (transform.position.y <= -20)
         {
-            transform.position = new Vector3(0, 1, 0);
+            SceneManager.LoadScene(1);
         }
     }
 }

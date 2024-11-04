@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 1323085326}
   - component: {fileID: 1323085325}
   m_Layer: 5
-  m_Name: Health
+  m_Name: platformCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Health: 100'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1441,13 +1441,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2931463829735562562, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
+      objectReference: {fileID: 0}
     - target: {fileID: 4172947662999212216, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
       propertyPath: platform
       value: 
       objectReference: {fileID: 4849952238499513384, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+    - target: {fileID: 4172947662999212216, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+      propertyPath: platformCounterTrigger
+      value: 
+      objectReference: {fileID: 1882774588}
     - target: {fileID: 4387809429891540312, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.58713055
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4387809429891540312, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1455,7 +1463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387809429891540312, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.425908
+      value: 13.44
       objectReference: {fileID: 0}
     - target: {fileID: 4387809429891540312, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1494,6 +1502,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+--- !u!1 &1882774588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4404036455021125251, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+  m_PrefabInstance: {fileID: 1841312516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2069070747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,9 +1831,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 2069070747}
+  platform: {fileID: 4849952238499513384, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
   MaxHealth: 100
   currentHealth: 0
+  platformCounterTrigger: {fileID: 1882774588}
   appleText: {fileID: 689337067}
+  platformCounterText: {fileID: 1323085325}
 --- !u!1 &2146033656
 GameObject:
   m_ObjectHideFlags: 0

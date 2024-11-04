@@ -9,6 +9,7 @@ public class SpawnPlatform : MonoBehaviour
     public Transform appleSpawnPoint;
     public GameObject applePlatform;
     public GameObject platform;
+    public GameObject platformCounterTrigger;
     public bool triggered = false;
     private int randomXPos;
     private int randomYPos;
@@ -35,7 +36,8 @@ public class SpawnPlatform : MonoBehaviour
             chanceToApple = Random.Range(0.0f, 1.0f);
             chanceForNegative = Random.Range(0.0f, 1.0f);
 
-            if(chanceForNegative >= 0.5f){
+            if (chanceForNegative >= 0.5f)
+            {
                 randomAppleXPos *= -1;
             }
 
@@ -49,6 +51,12 @@ public class SpawnPlatform : MonoBehaviour
             //Instantiate(platform, newPos, Quaternion.identity);
 
             Instantiate(platform, newPos, Quaternion.identity);
+            /*
+            if (platformCounterTrigger != null)
+            {
+                platformCounterTrigger.transform.position = new Vector3(platformCounterTrigger.transform.position.x, platformCounterTrigger.transform.position.y + 2, platformCounterTrigger.transform.position.z);
+            }
+            */
             triggered = true;
         }
     }

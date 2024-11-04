@@ -7,11 +7,22 @@ public class ObjectPool : MonoBehaviour
 
     public static ObjectPool instance;
 
-    private List<GameObject> pooledObjects = new List<GameObject>();
-    private int amountToPool = 50;
+    private List<GameObject> pooledApples = new List<GameObject>();
+    private List<GameObject> platform = new List<GameObject>();
+
+
+    private int appleAmount = 50;
+    private int platformAmount = 100;
+
+
     [SerializeField] private GameObject applePrefab;
-    private void Awake(){
-        if(instance == null){
+    [SerializeField] private GameObject platformPrefab;
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
             instance = this;
         }
     }
@@ -19,17 +30,21 @@ public class ObjectPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < amountToPool; i++){
+        for (int i = 0; i < appleAmount; i++)
+        {
             GameObject obj = Instantiate(applePrefab);
             obj.SetActive(false);
-            pooledObjects.Add(obj);
+            pooledApples.Add(obj);
         }
     }
 
-    public GameObject GetPooledObject(){
-        for(int i = 0; i < pooledObjects.Count; i++){
-            if(!pooledObjects[i].activeInHierarchy){
-                return pooledObjects[i];
+    public GameObject GetPooledObject()
+    {
+        for (int i = 0; i < pooledApples.Count; i++)
+        {
+            if (!pooledApples[i].activeInHierarchy)
+            {
+                return pooledApples[i];
             }
         }
         return null;
@@ -38,6 +53,6 @@ public class ObjectPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

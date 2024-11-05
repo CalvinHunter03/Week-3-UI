@@ -11,8 +11,9 @@ public class Player : MonoBehaviour
     public GameObject platform;
     public int MaxHealth = 100;
     public int currentHealth;
-    private int appleNum = 0;
-    private int platformCounter = 0;
+    public static int appleNum = 0;
+    public static int platformCounter = 0;
+    private bool isPlayerDead = false;
 
     public GameObject platformCounterTrigger;
 
@@ -37,8 +38,12 @@ public class Player : MonoBehaviour
             other.gameObject.SetActive(false);
             platformCounter++;
             platformCounterText.text = platformCounter.ToString();
+        }
 
-
+        if (other.transform.tag == "enemy")
+        {
+            Debug.Log("Player is dead now");
+            isPlayerDead = true;
         }
 
     }
@@ -52,9 +57,9 @@ public class Player : MonoBehaviour
             wall.SetActive(false);
         }
 
-        if (transform.position.y <= -20)
+        if (transform.position.y <= -20 || isPlayerDead)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

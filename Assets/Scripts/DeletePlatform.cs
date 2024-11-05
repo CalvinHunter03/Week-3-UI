@@ -12,7 +12,8 @@ public class DeletePlatform : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(platform);
+            platform.SetActive(false);
+            //Destroy(platform);
         }
 
     }

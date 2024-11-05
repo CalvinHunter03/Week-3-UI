@@ -50,7 +50,16 @@ public class SpawnPlatform : MonoBehaviour
             Vector3 newPos = new Vector3(spawnPoint.position.x + randomXPos, spawnPoint.position.y + randomYPos, spawnPoint.position.z + randomZPos);
             //Instantiate(platform, newPos, Quaternion.identity);
 
-            Instantiate(platform, newPos, Quaternion.identity);
+            //Instantiate(platform, newPos, Quaternion.identity);
+
+            GameObject newPlatform = ObjectPool.instance.GetPooledPlatform();
+            if (newPlatform != null)
+            {
+                newPlatform.transform.position = newPos;
+                newPlatform.SetActive(true);
+
+            }
+
             /*
             if (platformCounterTrigger != null)
             {
@@ -59,5 +68,11 @@ public class SpawnPlatform : MonoBehaviour
             */
             triggered = true;
         }
+    }
+
+    private void OnDisable()
+    {
+        triggered = false;
+
     }
 }

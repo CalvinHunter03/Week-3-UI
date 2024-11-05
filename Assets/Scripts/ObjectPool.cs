@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     public static ObjectPool instance;
 
     private List<GameObject> pooledApples = new List<GameObject>();
-    private List<GameObject> platform = new List<GameObject>();
+    private List<GameObject> pooledPlatform = new List<GameObject>();
 
 
     private int appleAmount = 50;
@@ -36,6 +36,13 @@ public class ObjectPool : MonoBehaviour
             obj.SetActive(false);
             pooledApples.Add(obj);
         }
+
+        for (int i = 0; i < platformAmount; i++)
+        {
+            GameObject obj = Instantiate(platformPrefab);
+            obj.SetActive(false);
+            pooledPlatform.Add(obj);
+        }
     }
 
     public GameObject GetPooledObject()
@@ -45,6 +52,18 @@ public class ObjectPool : MonoBehaviour
             if (!pooledApples[i].activeInHierarchy)
             {
                 return pooledApples[i];
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetPooledPlatform()
+    {
+        for (int i = 0; i < pooledPlatform.Count; i++)
+        {
+            if (!pooledPlatform[i].activeInHierarchy)
+            {
+                return pooledPlatform[i];
             }
         }
         return null;

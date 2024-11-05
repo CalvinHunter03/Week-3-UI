@@ -5,12 +5,17 @@ using UnityEngine;
 public class PlatformCounterScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject counterTrigger;
 
-    public GameObject obj;
-
-    void Start()
+    void OnEnable()
     {
-        obj.SetActive(true);
+
+        counterTrigger.SetActive(true);
+
+
     }
+
+
+
 
 }

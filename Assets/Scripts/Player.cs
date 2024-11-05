@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public static int platformCounter = 0;
     private bool isPlayerDead = false;
 
+
     public GameObject platformCounterTrigger;
 
 
@@ -60,6 +61,22 @@ public class Player : MonoBehaviour
         if (transform.position.y <= -20 || isPlayerDead)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (SettingsMenu.colorPicker == 1)
+        {
+            Color redColor = new Color(1, 0, 0);
+            this.gameObject.GetComponent<Renderer>().material.color = redColor;
+
+        }
+        else if (SettingsMenu.colorPicker == 2)
+        {
+            Color greenColor = new Color(0, 1, 0);
+            this.gameObject.GetComponent<Renderer>().material.color = greenColor;
+        }
+        else if (SettingsMenu.colorPicker == 0)
+        {
+            this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 1);
         }
     }
 }

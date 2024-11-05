@@ -11,8 +11,8 @@ public class ObjectPool : MonoBehaviour
     private List<GameObject> pooledPlatform = new List<GameObject>();
 
 
-    private int appleAmount = 50;
-    private int platformAmount = 100;
+    private int appleAmount = 30;
+    private int platformAmount = 20;
 
 
     [SerializeField] private GameObject applePrefab;

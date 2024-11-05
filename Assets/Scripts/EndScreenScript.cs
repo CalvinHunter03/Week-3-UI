@@ -19,6 +19,8 @@ public class EndScreenScript : MonoBehaviour
     {
         appleText.text = "Apples Collected: " + appleNum.ToString();
         platformCounterText.text = "Platforms Landed on: " + platformCounter.ToString();
+        Player.appleNum = 0;
+        Player.platformCounter = 0;
 
 
     }
@@ -34,6 +36,11 @@ public class EndScreenScript : MonoBehaviour
         SceneManager.LoadScene(1);
         Player.appleNum = 0;
         Player.platformCounter = 0;
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

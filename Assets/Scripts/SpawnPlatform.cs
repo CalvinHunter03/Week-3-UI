@@ -42,7 +42,7 @@ public class SpawnPlatform : MonoBehaviour
             }
 
             Vector3 applePlatformPos = new Vector3(spawnPoint.position.x + randomAppleXPos, spawnPoint.position.y + randomYPos, spawnPoint.position.z + randomZPos);
-            if (chanceToApple > 0.75f)
+            if (chanceToApple >= 0.75f)
             {
                 Instantiate(applePlatform, applePlatformPos, Quaternion.identity);
             }

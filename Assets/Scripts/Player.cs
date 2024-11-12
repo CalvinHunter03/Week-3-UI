@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public GameObject platformCounterTrigger;
 
 
+
     public TextMeshProUGUI appleText;
     public TextMeshProUGUI platformCounterText;
 
@@ -77,6 +78,13 @@ public class Player : MonoBehaviour
         else if (SettingsMenu.colorPicker == 0)
         {
             this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 1);
+        }
+
+        float platformDistToPlayer = Vector3.Distance(platform.transform.position, transform.position);
+
+        if (platformDistToPlayer >= 10)
+        {
+            platform.SetActive(false);
         }
     }
 }

@@ -97,7 +97,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cb7af4f9ada3c430aa8ea54cdcbbcfd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,6 +225,7 @@ MonoBehaviour:
   appleSpawnPoint: {fileID: 3808751422933097762}
   applePlatform: {fileID: 2741572092001582851}
   platform: {fileID: 4849952238499513384, guid: b3ad0840fc47944afa9c5e6e9bc380d2, type: 3}
+  platformCounterTrigger: {fileID: 0}
   triggered: 0
 --- !u!4 &8879151669131935867 stripped
 Transform:
